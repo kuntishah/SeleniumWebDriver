@@ -1,0 +1,16 @@
+This is an End to End project that displays my skills of building a Page Object Framework for web automation testing.
+
+1. Created pom.xml file for the maven project. Added all the dependencies like, TestNG, Log4j core, Log4j api, Maven Surefire
+plugin.
+2. Created individual class for each page which contains page objects for that page only in main/java folder.
+3. Created Test case class in main/test folder. The test case class uses page class to use the objects of each page.
+4. Created data properties file which contains all the data and its value. All classes call this file when they need information
+like which browser to use or what is the url name. 
+5. Created base class which initialises the driver and sets up the browser and contains the function to take screenshot of the 
+webpage.
+6. Created test listener class which takes screenshot if the test fails. Check screenshot folder to see the screenshot because 
+one test fails.
+7. Created Log4j2.xml file which mentiones where the logs should be displayed, in console or any file. Check logs folder under
+E2EProject folder to see the logs.
+8. Created testng.xml file which creates test suite for running tests. We can add test listeneres, parameters for particular 
+test, mention if tests run in parallel.  Check test-output folder to see the test reports.
