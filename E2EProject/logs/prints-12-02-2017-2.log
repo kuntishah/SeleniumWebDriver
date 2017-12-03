@@ -1,0 +1,7 @@
+2017-12-02 22:58:21,312 INFO Academy.bin.LoginQAClick [main] Into Login page
+2017-12-02 22:58:22,408 ERROR Academy.bin.LoginQAClick [main] driver value is null
+2017-12-02 22:58:27,546 INFO resources.base [main] Data.properties file loaded
+2017-12-02 22:58:27,546 INFO resources.base [main] Browser value retrieved from properties file
+2017-12-02 22:58:28,173 INFO resources.base [main] Chrome driver assigned
+2017-12-02 22:58:33,930 INFO Academy.bin.TestCase2 [main]  is initialised in HomePage
+2017-12-02 22:58:33,931 INFO Academy.bin.TestCase2 [main]  is initialised in HomePage
