@@ -5,10 +5,8 @@
     <classes>
       <class name="com.kunti.app.BookFlight">
         <methods>
-          <include name="browserSet"/>
-          <include name="teardown"/>
           <include name="initialise"/>
-          <include name="bookOneWayFlight" invocation-numbers="2"/>
+          <include name="bookFlight"/>
         </methods>
       </class> <!-- com.kunti.app.BookFlight -->
     </classes>

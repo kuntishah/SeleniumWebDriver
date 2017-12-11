@@ -1,0 +1,5 @@
+2017-12-11 13:04:22,563 INFO com.kunti.app.BookFlight [main] get url
+2017-12-11 13:04:26,368 INFO com.kunti.app.BookFlight [main] CLick on flight tab
+2017-12-11 13:04:29,033 INFO com.kunti.app.BookFlight [main] CLick on one way/round trip/multicity 
+2017-12-11 13:04:29,597 INFO com.kunti.app.BookFlight [main] Enter from place
+2017-12-11 13:04:30,782 INFO com.kunti.app.BookFlight [main] Enter to place

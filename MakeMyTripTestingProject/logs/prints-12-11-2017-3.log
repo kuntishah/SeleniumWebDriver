@@ -1,0 +1,7 @@
+2017-12-11 13:04:08,633 INFO com.kunti.app.BookFlight [main] CLick on flight tab
+2017-12-11 13:04:12,301 INFO com.kunti.app.BookFlight [main] CLick on one way/round trip/multicity 
+2017-12-11 13:04:12,677 INFO com.kunti.app.BookFlight [main] Enter from place
+2017-12-11 13:04:14,469 INFO com.kunti.app.BookFlight [main] Enter to place
+2017-12-11 13:04:21,360 INFO com.kunti.app.BookFlight [main] Set up browser
+2017-12-11 13:04:21,360 INFO resources.base [main] Setting chrome driver
+2017-12-11 13:04:22,563 INFO com.kunti.app.BookFlight [main] Inside book flight test

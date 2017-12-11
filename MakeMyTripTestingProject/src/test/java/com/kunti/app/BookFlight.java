@@ -6,7 +6,6 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Locale;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.poi.ss.usermodel.CellType;
@@ -55,36 +54,39 @@ public class BookFlight extends base {
 		if (driver != null) {
 			log.info("get url");
 			driver.get(prop.getProperty("url"));
-			MakeMyTripHomePage hp = new MakeMyTripHomePage(driver);
+			driver.manage().window().maximize();
+			HomePageMethods hp = new HomePageMethods(driver);
 			log.info("CLick on flight tab");
-			hp.findBookFlightTab().click();
+			hp.clickBookFlight();
+			
 			log.info("CLick on one way/round trip/multicity ");
 
-			hp.findWayButton(way).click();
+			if (way.contains("One")) {
+				hp.clickOneWayButton();;
+			} else if (way.contains("Round")) {
+				hp.clickRoundTripButton();
+
+			} else if (way.contains("Multi")) {
+				hp.clickMultiCityButton();
+
+			}
+			
 			log.info("Enter from place");
-
-			hp.findFromInputBox().clear();
-
-			hp.findFromInputBox().sendKeys(from);
-			hp.findFromInputBox().sendKeys(Keys.RETURN);
+			hp.clickFromInputBox();
+			hp.clearFromInputBox();
+			hp.sendKeysFromInputBox(from);
+			hp.sendKeysFromInputBox(Keys.RETURN);
+			log.info("Enter to place");
 			
-			log.info("Enter flight tab");
-
-			List<WebElement> dd = hp.findToInputBox().findElements(By.xpath("//ul[@id='ui-id-2']/li"));
-
-			for (WebElement ele : dd) {
-
-				if (ele.getText().contains(to)) {
-					ele.click();
-				}
-
-			} // for
-			
+			hp.clickToInputBox();
+			hp.clearToInputBox();
+			hp.sendKeysToInputBox(to);
+		
 			String month = fromDt.substring(0, fromDt.indexOf(" "));
 			String date = fromDt.substring(fromDt.indexOf(" ") + 1, fromDt.indexOf(","));
 			String year = fromDt.substring(fromDt.indexOf(",") + 1);
 
-			fromDatePicker(hp, date, month, year);
+			hp.fromDatePicker(date, month, year);
 			
 			if(way.contains("Round"))
 			{
@@ -92,144 +94,33 @@ public class BookFlight extends base {
 				date = toDt.substring(toDt.indexOf(" ") + 1, toDt.indexOf(","));
 				year = toDt.substring(toDt.indexOf(",") + 1);
 
-				toDatePicker(hp,date,month,year);
+				hp.toDatePicker(date,month,year);
 			}
-			hp.findPassengerDropdownButton().click();
-			List<WebElement> noAdults = hp.findNoOfAdults().findElements(By.tagName("li"));
-			noAdults.get(Integer.parseInt(adultPass) - 1).click();
+			
+			hp.clickPassengerDropdown();
+			
+			hp.clickNoAdults(adultPass);
+			hp.clickNoChildren(childPass);
+			hp.clickNoInfants(infantPass);
 
-			List<WebElement> noChildren = hp.findNoOfChildren().findElements(By.tagName("li"));
-			noChildren.get(Integer.parseInt(childPass) - 1).click();
+			
 
-			List<WebElement> noInfants = hp.findNoOfInfants().findElements(By.tagName("li"));
-			noInfants.get(Integer.parseInt(infantPass) - 1).click();
+			hp.clickDonePassengerDropdown();
 
-			hp.findPassengerDone().click();
+			hp.clickClassOfFlight();
+					
 
-			hp.findClassOfFlight().click();
+			hp.clickClassBtn(flightCls);
 
-			hp.findClassBtn(flightCls).click();
-
-			hp.findsearchFlightButton().click();
+			hp.clickSearchFlightButton();
 
 			Assert.assertEquals(driver.getTitle(), result);
 		} // if driver null
 
 	}
 
-	public void fromDatePicker(MakeMyTripHomePage hp_obj, String date, String month, String year) {
-
-		// click date picker
-		hp_obj.findDepartureDatePicker().click();
-
-		// pick the year - current or later
-		while (!driver.findElement(By.xpath("/html/body/div[2]/div[3]/div[3]/div/div[3]/div/div[1]/div/div/span[2]"))
-				.getText().equalsIgnoreCase(year)) {
-			if (driver.findElement(By.xpath("/html/body/div[2]/div[3]/div[3]/div/div[3]/div/div[2]/div/div/span[2]"))
-					.getText().equalsIgnoreCase(year)) {
-				break;
-			}
-			driver.findElement(By.xpath("/html/body/div[2]/div[3]/div[3]/div/div[3]/div/div[2]/div/a/span")).click();
-		}
-
-		int side = 0; // 0 is left, 1 is right
-
-		// pick the month
-		// if while condition is true (false before negation) then go inside
-		// while loop
-		// while going in checking the ui-corner-left
-		while (!driver.findElement(By.xpath("/html/body/div[2]/div[3]/div[3]/div/div[3]/div/div[1]/div/div/span[1]"))
-				.getText().equalsIgnoreCase(month)) {
-			// check right
-			if (driver.findElement(By.xpath("/html/body/div[2]/div[3]/div[3]/div/div[3]/div/div[2]/div/div/span[1]"))
-					.getText().equalsIgnoreCase(month)) {
-				side = 1;
-				break;
-			}
-
-			driver.findElement(By.xpath("/html/body/div[2]/div[3]/div[3]/div/div[3]/div/div[2]/div/a/span")).click();
-			side = 0;
-		}
-
-		// pick the date
-		WebElement path = null;
-		// take the path for the section - left/right
-		if (side == 0) {
-
-			path = driver.findElement(By.xpath("/html/body/div[2]/div[3]/div[3]/div/div[3]/div/div[1]/table"));
-		} else if (side == 1) {
-			path = driver.findElement(By.xpath("/html/body/div[2]/div[3]/div[3]/div/div[3]/div/div[2]/table"));
-
-		}
-
-		List<WebElement> noOfDays = path.findElements(By.className("ui-state-default"));
-
-		// Select the date
-		for (WebElement day: noOfDays) {
-
-			if (day.getText().equalsIgnoreCase(date)) {
-				day.click();
-				break;
-			}
-		}
-	}
 	
-	public void toDatePicker(MakeMyTripHomePage hp_obj, String date, String month, String year) {
-
-		// click date picker
-		hp_obj.findDepartureDatePicker().click();
-
-		// pick the year - current or later
-		while (!driver.findElement(By.xpath("/html/body/div[2]/div[3]/div[3]/div/div[4]/div/div[1]/div/div/span[2]"))
-				.getText().equalsIgnoreCase(year)) {
-			if (driver.findElement(By.xpath("/html/body/div[2]/div[3]/div[3]/div/div[4]/div/div[2]/div/div/span[2]"))
-					.getText().equalsIgnoreCase(year)) {
-				break;
-			}
-			driver.findElement(By.xpath("/html/body/div[2]/div[3]/div[3]/div/div[4]/div/div[2]/div/a/span")).click();
-		}
-
-		int side = 0; // 0 is left, 1 is right
-
-		// pick the month
-		// if while condition is true (false before negation) then go inside
-		// while loop
-		// while going in checking the ui-corner-left
-		while (!driver.findElement(By.xpath("/html/body/div[2]/div[3]/div[3]/div/div[4]/div/div[1]/div/div/span[1]"))
-				.getText().equalsIgnoreCase(month)) {
-			// check right
-			if (driver.findElement(By.xpath("/html/body/div[2]/div[3]/div[3]/div/div[4]/div/div[2]/div/div/span[1]"))
-					.getText().equalsIgnoreCase(month)) {
-				side = 1;
-				break;
-			}
-
-			driver.findElement(By.xpath("/html/body/div[2]/div[3]/div[3]/div/div[4]/div/div[2]/div/a/span")).click();
-			side = 0;
-		}
-
-		// pick the date
-		WebElement path = null;
-		// take the path for the section - left/right
-		if (side == 0) {
-
-			path = driver.findElement(By.xpath("/html/body/div[2]/div[3]/div[3]/div/div[4]/div/div[1]/table"));
-		} else if (side == 1) {
-			path = driver.findElement(By.xpath("/html/body/div[2]/div[3]/div[3]/div/div[4]/div/div[2]/table"));
-
-		}
-
-		List<WebElement> noOfDays = path.findElements(By.className("ui-state-default"));
-
-		// Select the date
-		for (WebElement day: noOfDays) {
-
-			if (day.getText().equalsIgnoreCase(date)) {
-				day.click();
-				break;
-			}
-		}
-	}
+	
 
 	@DataProvider
 	public Object[][] getTestData() throws IOException {
@@ -260,7 +151,7 @@ public class BookFlight extends base {
 
 	@AfterMethod
 	public void teardown() {
-		// driver.quit();
+		driver.quit();
 	}
 
 }

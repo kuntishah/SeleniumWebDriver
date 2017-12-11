@@ -1,0 +1,7 @@
+2017-12-11 13:02:40,347 INFO com.kunti.app.BookFlight [main] Load Properties
+2017-12-11 13:03:39,177 INFO com.kunti.app.BookFlight [main] Load Properties
+2017-12-11 13:03:39,782 INFO com.kunti.app.BookFlight [main] Set up browser
+2017-12-11 13:03:39,782 INFO resources.base [main] Setting chrome driver
+2017-12-11 13:03:41,362 INFO com.kunti.app.BookFlight [main] Inside book flight test
+2017-12-11 13:03:41,362 INFO com.kunti.app.BookFlight [main] get url
+2017-12-11 13:03:45,501 INFO com.kunti.app.BookFlight [main] CLick on flight tab

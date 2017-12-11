@@ -31,17 +31,15 @@ div.shootout {padding:2em;border:3px #4854A8 solid}
 <body>
 <table cellspacing="0" cellpadding="0" class="result">
 <tr><th>Test</th><th class="numi">Methods<br/>Passed</th><th class="numi">Scenarios<br/>Passed</th><th class="numi"># skipped</th><th class="numi"># failed</th><th class="numi">Total<br/>Time</th><th class="numi">Included<br/>Groups</th><th class="numi">Excluded<br/>Groups</th></tr>
-<tr><td style="text-align:left;padding-right:2em">Default test</td><td class="numi">3</td><td class="numi">2</td><td class="numi">0</td><td class="numi_attn">3</td><td class="numi">78.1 seconds</td><td class="numi"></td><td class="numi"></td></tr>
+<tr><td style="text-align:left;padding-right:2em">Default test</td><td class="numi">3</td><td class="numi">3</td><td class="numi">0</td><td class="numi">0</td><td class="numi">60.6 seconds</td><td class="numi"></td><td class="numi"></td></tr>
 </table>
 <table cellspacing="0" cellpadding="0" class="passed" id="summary">
 <tr><th>Class</th><th>Method</th><th># of<br/>Scenarios</th><th>Start</th><th>Time<br/>(ms)</th></tr>
-<tr><th colspan="4">Default test &#8212; failed</th></tr>
-<tr class="failedodd"><td rowspan="3">com.kunti.app.BookFlight</td><td><a href="#m1"><b>bookOneWayFlight</b>  </a></td><td class="numi">1</td><td>1512523541656</td><td class="numi">20127</td></tr><tr class="failedodd"><td><a href="#m2"><b>bookOneWayFlight</b>  </a></td><td class="numi">1</td><td>1512523541656</td><td class="numi">20127</td></tr><tr class="failedodd"><td><a href="#m3"><b>bookOneWayFlight</b>  </a></td><td class="numi">1</td><td>1512523541656</td><td class="numi">20127</td></tr>
 <tr><th colspan="4">Default test &#8212; passed</th></tr>
-<tr class="passedodd"><td rowspan="3">com.kunti.app.BookFlight</td><td><a href="#m4"><b>bookOneWayFlight</b>  </a></td><td class="numi">2</td><td>1512523487798</td><td class="numi">49686</td></tr><tr class="passedodd"><td><a href="#m5"><b>bookOneWayFlight</b>  </a></td><td class="numi">2</td><td>1512523487798</td><td class="numi">49686</td></tr><tr class="passedodd"><td><a href="#m6"><b>bookOneWayFlight</b>  </a></td><td class="numi">2</td><td>1512523487798</td><td class="numi">49686</td></tr>
+<tr class="passedodd"><td rowspan="3">com.kunti.app.BookFlight</td><td><a href="#m1"><b>bookFlight</b>  </a></td><td class="numi">3</td><td>1513026221349</td><td class="numi">58445</td></tr><tr class="passedodd"><td><a href="#m2"><b>bookFlight</b>  </a></td><td class="numi">3</td><td>1513026221349</td><td class="numi">58445</td></tr><tr class="passedodd"><td><a href="#m3"><b>bookFlight</b>  </a></td><td class="numi">3</td><td>1513026221349</td><td class="numi">58445</td></tr>
 </table>
 <h1>Default test</h1>
-<h2 id="m1">com.kunti.app.BookFlight:bookOneWayFlight</h2>
+<h2 id="m1">com.kunti.app.BookFlight:bookFlight</h2>
 <table cellspacing="0" cellpadding="0" class="result">
 <tr class="param"><th>Parameter #1</th><th>Parameter #2</th><th>Parameter #3</th><th>Parameter #4</th><th>Parameter #5</th><th>Parameter #6</th><th>Parameter #7</th><th>Parameter #8</th><th>Parameter #9</th><th>Parameter #10</th></tr>
 <tr class="param stripe"><td>Round</td>
@@ -55,32 +53,9 @@ div.shootout {padding:2em;border:3px #4854A8 solid}
 <td>First Class</td>
 <td>MakeMyTrip</td>
 </tr>
-<tr><td style="padding-left:3em" colspan="10">
-<p>
-Build info: version: &apos;3.6.0&apos;, revision: &apos;6fbf3ec767&apos;, time: &apos;2017-09-27T16:15:26.402Z&apos;
-System info: host: &apos;Kuntis-MacBook-Pro.local&apos;, ip: &apos;fe80:0:0:0:a9:b151:40fd:8dc3%en0&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.13.1&apos;, java.version: &apos;1.8.0_121&apos;
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Capabilities [{moz:profile=/var/folders/w_/190phhts5176jdzkf04fxn1w0000gn/T/rust_mozprofile.2DwqDSYE4x8g, rotatable=false, timeouts={implicit=0, pageLoad=300000, script=30000}, pageLoadStrategy=normal, moz:headless=false, platform=MAC, moz:accessibilityChecks=false, acceptInsecureCerts=true, browserVersion=57.0, platformVersion=17.2.0, moz:processID=2483, browserName=firefox, javascriptEnabled=true, platformName=MAC, moz:webdriverClick=false}]
-Session ID: 8b6bf349-f777-014f-aef6-c2257c6e369e</p>
-sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-<br/>at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-<br/>at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-<br/>at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
-<br/>at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:185)
-<br/>at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:120)
-<br/>at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-<br/>at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
-<br/>at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-<br/>at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:586)
-<br/>at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:279)
-<br/>at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:83)
-<br/>at com.kunti.app.BookFlight.toDatePicker(BookFlight.java:181)
-<br/>at com.kunti.app.BookFlight.bookOneWayFlight(BookFlight.java:87)
-<br/>25 lines not shown
-</td></tr>
 </table>
 <p class="totop"><a href="#summary">back to summary</a></p>
-<h2 id="m2">com.kunti.app.BookFlight:bookOneWayFlight</h2>
+<h2 id="m2">com.kunti.app.BookFlight:bookFlight</h2>
 <table cellspacing="0" cellpadding="0" class="result">
 <tr class="param"><th>Parameter #1</th><th>Parameter #2</th><th>Parameter #3</th><th>Parameter #4</th><th>Parameter #5</th><th>Parameter #6</th><th>Parameter #7</th><th>Parameter #8</th><th>Parameter #9</th><th>Parameter #10</th></tr>
 <tr class="param stripe"><td>One Way</td>
@@ -96,7 +71,7 @@ sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 </tr>
 </table>
 <p class="totop"><a href="#summary">back to summary</a></p>
-<h2 id="m3">com.kunti.app.BookFlight:bookOneWayFlight</h2>
+<h2 id="m3">com.kunti.app.BookFlight:bookFlight</h2>
 <table cellspacing="0" cellpadding="0" class="result">
 <tr class="param"><th>Parameter #1</th><th>Parameter #2</th><th>Parameter #3</th><th>Parameter #4</th><th>Parameter #5</th><th>Parameter #6</th><th>Parameter #7</th><th>Parameter #8</th><th>Parameter #9</th><th>Parameter #10</th></tr>
 <tr class="param stripe"><td>One Way</td>

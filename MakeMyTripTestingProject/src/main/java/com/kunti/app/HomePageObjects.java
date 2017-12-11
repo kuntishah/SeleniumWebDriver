@@ -1,11 +1,13 @@
 package com.kunti.app;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class MakeMyTripHomePage {
-	private WebDriver driver;
+public class HomePageObjects {
+	private WebDriver hpo_driver;
 	private By customerServiceNumber = By.xpath("//*[@id='right_portion_hdr']/div/ul/li[3]/span/strong");
 
 	// Book Flight
@@ -15,6 +17,7 @@ public class MakeMyTripHomePage {
 	private By multiCityButton = By.xpath("/html/body/div[2]/div[3]/div[1]/section/div[1]/div/div[3]/label");
 	private By fromInputBox = By.xpath("//*[@id='hp-widget__sfrom']");
 	private By toInputBox = By.xpath("//*[@id='hp-widget__sTo']");
+	private By toDropdown = By.xpath("//ul[@id='ui-id-2']/li");
 	private By departureDatePicker = By.xpath("//*[@id='hp-widget__depart']");
 	private By returnDatePicker = By.xpath("//*[@id='hp-widget__return']");
 	private By passengerDropdownButton = By.xpath("//*[@id='hp-widget__paxCounter']");
@@ -29,109 +32,103 @@ public class MakeMyTripHomePage {
 	private By firstClass = By.xpath("/html/body/div[2]/div[3]/div[3]/div/div[10]/div[4]/label");
 	private By searchFlightButton = By.xpath("//*[@id='searchBtn']");
 
-	public MakeMyTripHomePage(WebDriver driver) {
-		this.driver = driver;
+	public HomePageObjects(WebDriver driver) {
+		this.hpo_driver = driver;
 	}
 
 	public WebElement findCustomerServiceNumbert() {
-		return driver.findElement(customerServiceNumber);
+		return hpo_driver.findElement(customerServiceNumber);
 
 	}
 
 	public WebElement findBookFlightTab() {
-		return driver.findElement(bookFlightTab);
+		return hpo_driver.findElement(bookFlightTab);
 	}
 
-	public WebElement findWayButton(String way) {
-		if (way.contains("One")) {
-			return driver.findElement(oneWayButton);
-		} else if (way.contains("Round")) {
-			return driver.findElement(roundTripButton);
-
-		} else if (way.contains("Multi")) {
-			return driver.findElement(multiCityButton);
-
-		}
-		
 	
-		return null;
-	}
 
 	public WebElement findOneWayTripButton() {
-		return driver.findElement(oneWayButton);
+		return hpo_driver.findElement(oneWayButton);
 
 	}
 
 	public WebElement findRoundTripButton() {
-		return driver.findElement(roundTripButton);
+		return hpo_driver.findElement(roundTripButton);
 
 	}
 
 	public WebElement findMultiCityButton() {
-		return driver.findElement(multiCityButton);
+		return hpo_driver.findElement(multiCityButton);
 
 	}
 
 	public WebElement findFromInputBox() {
-		return driver.findElement(fromInputBox);
+		return hpo_driver.findElement(fromInputBox);
 	}
 
 	public WebElement findToInputBox() {
-		return driver.findElement(toInputBox);
+		return hpo_driver.findElement(toInputBox);
 	}
 
+	public List<WebElement> findToDropdown(){
+		return hpo_driver.findElements(toDropdown);
+	}
+	
 	public WebElement findDepartureDatePicker() {
-		return driver.findElement(departureDatePicker);
+		return hpo_driver.findElement(departureDatePicker);
 	}
 
 	public WebElement findReturnDatePicker() {
-		return driver.findElement(returnDatePicker);
+		return hpo_driver.findElement(returnDatePicker);
 	}
 
 	public WebElement findPassengerDropdownButton() {
-		return driver.findElement(passengerDropdownButton);
+		return hpo_driver.findElement(passengerDropdownButton);
 	}
 
 	public WebElement findNoOfAdults() {
-		return driver.findElement(noOfAdults);
+		return hpo_driver.findElement(noOfAdults);
 	}
 
 	public WebElement findNoOfChildren() {
-		return driver.findElement(noOfChildren);
+		return hpo_driver.findElement(noOfChildren);
 	}
 
 	public WebElement findNoOfInfants() {
-		return driver.findElement(noOfInfants);
+		return hpo_driver.findElement(noOfInfants);
 	}
 
 	public WebElement findClassOfFlight() {
-		return driver.findElement(classOfFlight);
+		return hpo_driver.findElement(classOfFlight);
 	}
 
-	public WebElement findClassBtn(String classToSelect) {
+	
+	
+	public WebElement findEconomyClass(){
+		return hpo_driver.findElement(economyClass);
 
-		if (classToSelect.equalsIgnoreCase("economy")) {
-			return driver.findElement(economyClass);
-		} else if (classToSelect.contains("Premium")) {
-			return driver.findElement(premiumEconomyClass);
-		} else if (classToSelect.contains("Business")) {
-			return driver.findElement(businessClass);
+	}
+	
+	public WebElement findPremiumEconomyClass(){
+		return hpo_driver.findElement(premiumEconomyClass);
 
-		} else if (classToSelect.contains("First")) {
-			return driver.findElement(firstClass);
-
-		} else {
-			return null;
-		}
+	}
+	
+	public WebElement findBusinessClass(){
+		return hpo_driver.findElement(businessClass);
 
 	}
 
+	public WebElement findFirstClass(){
+		return hpo_driver.findElement(firstClass);
+
+	}
 	public WebElement findsearchFlightButton() {
-		return driver.findElement(searchFlightButton);
+		return hpo_driver.findElement(searchFlightButton);
 	}
 
 	public WebElement findPassengerDone() {
-		return driver.findElement(passengerDone);
+		return hpo_driver.findElement(passengerDone);
 
 	}
 
