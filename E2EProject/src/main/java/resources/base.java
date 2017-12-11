@@ -30,7 +30,7 @@ public class base {
 		
 		
 		prop = new Properties();
-		FileInputStream fis = new FileInputStream("/Users/kuntishah/E2EProject/src/main/java/resources/data.properties");
+		FileInputStream fis = new FileInputStream("/Users/****/E2EProject/src/main/java/resources/data.properties");
 		prop.load(fis);
 		log.info("Data.properties file loaded");
 
